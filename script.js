@@ -45,6 +45,7 @@ function clearVar(name = "") {
     display.innerText = firstNumber;
     display.innerText = "";
     secondNumber = "";
+    display.innerText = result;
 }
 
 function mathOperation() {
