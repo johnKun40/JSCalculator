@@ -41,9 +41,8 @@ operationPress.forEach((operation) => {
 
 
 function clearVar(name = "") {
-    firstNumber += secondNumber + " " + name + " ";
+    firstNumber += secondNumber 
     display.innerText = firstNumber;
-    display.innerText = "";
     secondNumber = "";
     display.innerText = result;
 }
@@ -86,6 +85,7 @@ restartPress.addEventListener("click", () => {
     secondNumber = "";
 });
 
+
 window.addEventListener("keydown", (e) => {
     if (
       e.key === "0" ||
@@ -101,12 +101,10 @@ window.addEventListener("keydown", (e) => {
       e.key === "."
     ) {
       clickButtonEl(e.key);
-      // console.log(e.key)
     } else if (e.key === "+" || e.key === "-" || e.key === "/") {
       clickOperation(e.key);
     } else if (e.key === "*") {
       clickOperation("x");
-      // console.log(e.key)
     } else if (e.key == "Enter" || e.key === "=") {
       clickEqual();
     }
