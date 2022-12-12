@@ -19,6 +19,10 @@ numberPress.forEach(number => {
       } else if (e.target.innerText === "." && dotPresent) {
         return;
       }
+
+      if(e.target.innerText === "0" && secondNumber === "0" && display.innerText === "0" ) {
+        return display.innerText = "0";
+      }
       secondNumber += e.target.innerText;
       display.innerText = secondNumber;
     });
@@ -50,15 +54,19 @@ function clearVar(name = "") {
 function mathOperation() {
     if (operator === "x") {
       result = parseFloat(result) * parseFloat(secondNumber);
+      result = roundAccurately(result, 4).toString()
     } else if (operator === "+") {
       result = parseFloat(result) + parseFloat(secondNumber);
+      result = roundAccurately(result, 4).toString()
     } else if (operator === "-") {
       result = parseFloat(result) - parseFloat(secondNumber);
+      result = roundAccurately(result, 4).toString()
     } else if (operator === "/") {
         if (secondNumber === "0") {
             result = "No Bro!!"
         }else{
       result = parseFloat(result) / parseFloat(secondNumber);
+      result = roundAccurately(result, 4).toString()
         }
     } 
 }
@@ -135,3 +143,6 @@ function clickEqual() {
 }
 
 
+const roundAccurately = (value, places) => {
+    return parseFloat(Math.round(value + "e" + places) + "e-" + places);
+  };
